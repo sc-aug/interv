@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; Java Interview Prep Docs 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Java Interview Prep Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="java-core.html">Java Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multithread.html">Multithreading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-servlet-jsp.html">Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hibernate.html">Hibernate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spring.html">Spring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithm.html">Alogrithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design-pattern.html">Design Pattern</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Java Interview Prep Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/_static/content/mvc.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <ul class="simple">
+<li>Diff b/w requestDispatcher.forward and response.sendRedirect<ul>
+<li>forward . pass req&amp;resp to next servlet</li>
+<li>redirect . discard req . ask client to call</li>
+</ul>
+</li>
+<li>what is controller, abstractcontroller?<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li>Can I have multiple urls rendered from Same Controller?
+Why &#64;ResponseBody?
+package com.in28minutes.springmvc;</li>
+</ul>
+<p>import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;</p>
+<p>&#64;Controller
+public class LoginController {</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@RequestMapping</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;/login&quot;</span><span class="p">)</span>
+<span class="nd">@ResponseBody</span>
+<span class="n">public</span> <span class="n">String</span> <span class="n">sayHello</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">&quot;Hello World dummy&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>}</p>
+<p>`` Spring MVC Request Flow</p>
+<ul class="simple">
+<li>DispatcherServlet receives HTTP Request.</li>
+<li>DispatcherServlet identifies the right Controller based on the URL.</li>
+<li>Controller executes Business Logic.</li>
+<li>Controller returns a) Model b) View Name Back to DispatcherServlet.</li>
+<li>DispatcherServlet identifies the correct view (ViewResolver).</li>
+<li>DispatcherServlet makes the model available to view and executes it.</li>
+<li>DispatcherServlet returns HTTP Response Back.</li>
+</ul>
+<p>logging in ur app?
+&#64;RequestParam</p>
+<ul class="simple">
+<li>Session vs Model vs Request.</li>
+<li>Be cautious about what you use Session for.</li>
+<li>&#64;SessionAttributes(“name”) and how it works?
+Importance of redirect:/list-todos
+model.clear()?
+html5 form validations?</li>
+<li>Add Validations</li>
+<li>The JSR 303 and JSR 349 defines specification for the Bean Validation API (version 1.0 and 1.1, respectively), and Hibernate Validator is the reference implementation.
+&#64;Valid, BindignResult, InitBinder
+logout functionality?
+exception handling?
+Exception Handling is a cross cutting concern</li>
+<li>Do not handle exceptions in Controllers or Services, if you cannot add value to them.</li>
+<li>Bit of refactoring on the controllers</li>
+<li>&#64;ControllerAdvice and Controller Specific Exception Handling</li>
+<li>Handling Errors thrown from Views
+internaltionalization
+interceptor?
+&#64;PathVariable?</li>
+</ul>
+<p>Handle exception resolver??</p>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, chuan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../jquery.js"></script>
+      <script type="text/javascript" src="../underscore.js"></script>
+      <script type="text/javascript" src="../doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

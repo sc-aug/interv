@@ -1,0 +1,29 @@
+.. Java interview prep docs created 
+   by sphinx-quickstart
+
+Java Interview Prep
+===================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   _static/content/java-core
+   _static/content/multithread
+   _static/content/web-servlet-jsp
+   _static/content/hibernate
+   _static/content/spring
+   _static/content/algorithm
+   _static/content/design-pattern
+
+Docs Config
+===========
+
+* `sphinx doc <http://www.sphinx-doc.org/en/master/>`_
+* `theme - read the docs <https://github.com/rtfd/sphinx_rtd_theme/>`_
+
+.. code-block:: shell
+
+    # pip install sphinx sphinx-autobuild
+    # pip install sphinx_rtd_theme
+    # pip install recommonmark

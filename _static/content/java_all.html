@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Java All &mdash; Java Interview Prep Docs 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Java Core" href="java-core.html" />
+    <link rel="prev" title="Java Interview Prep Docs" href="../../index.html" /> 
+
+  
+  <script src="../js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Java Interview Prep Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Java All</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#design-pattern">Design Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#spring-core">Spring Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#web">Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hibernate">Hibernate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alogrithm">Alogrithm</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="java-core.html">Java Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multithread.html">Multithreading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spring.html">Spring</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Java Interview Prep Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Java All</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/_static/content/java_all.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="java-all">
+<h1>Java All<a class="headerlink" href="#java-all" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="design-pattern">
+<h2>Design Pattern<a class="headerlink" href="#design-pattern" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>Design Pattern in Spring</strong></dt>
+<dd><ul class="first last">
+<li>singleton</li>
+<li>factory</li>
+<li><dl class="first docutils">
+<dt>builder (ClientBuilder) [ref](<a class="reference external" href="https://www.geeksforgeeks.org/builder-design-pattern/">https://www.geeksforgeeks.org/builder-design-pattern/</a>)</dt>
+<dd><ul class="first last">
+<li>complex object</li>
+<li>seperate construction of a complex object</li>
+<li>Product &amp; Builder &amp; Concrete Builder &amp; Director</li>
+<li><dl class="first docutils">
+<dt>good:</dt>
+<dd><ul class="first last">
+<li>constructor are reduced</li>
+<li>no need to pass in null for optional parameters to the constructor.</li>
+<li>Object is always instantiated in a complete state</li>
+<li>Immutable objects can be build without much complex logic in object building process.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>bad:</dt>
+<dd><ul class="first last">
+<li>The number of lines of code increase (but much more readable code.)</li>
+<li>Requires creating a separate ConcreteBuilder for each different type of Product.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>service locator design pattern (service locator / RMI / fetch ) ??</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="https://iamninad.com/service-factory-using-spring-framework/">https://iamninad.com/service-factory-using-spring-framework/</a></li>
+<li><a class="reference external" href="https://steveschols.wordpress.com/2012/05/14/dependency-injection-vs-service-locator/">https://steveschols.wordpress.com/2012/05/14/dependency-injection-vs-service-locator/</a></li>
+<li><a class="reference external" href="https://netjs.blogspot.com/2018/03/servicelocatorfactorybean-in-spring.html">https://netjs.blogspot.com/2018/03/servicelocatorfactorybean-in-spring.html</a></li>
+<li><a class="reference external" href="https://dzone.com/articles/a-beginners-tutorial-for-understanding-and-impleme">https://dzone.com/articles/a-beginners-tutorial-for-understanding-and-impleme</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="spring-core">
+<h2>Spring Core<a class="headerlink" href="#spring-core" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Bean life cycle</dt>
+<dd><ul class="first last">
+<li>constructor &gt; setter injection</li>
+<li>BeanNameAware &gt; BeanFactoryAware &gt; ApplicationContextAware</li>
+<li>BeanPostProcessor.`postProcessBeforeInitialization`</li>
+<li>InitializingBean.`afterPropertiesSet()`</li>
+<li>BeanPostProcessor.`postProcessAfterInitialization`</li>
+<li>DisposableBean.`destroy`</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li></li>
+</ul>
+</div>
+<div class="section" id="web">
+<h2>Web<a class="headerlink" href="#web" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>What are differences between REST and other webservices.</dt>
+<dd><ul class="first last">
+<li>SOAP vs REST</li>
+<li>[ref](<a class="reference external" href="https://restfulapi.net/statelessness/">https://restfulapi.net/statelessness/</a>) Statelessness means that every HTTP request happens in <strong>complete isolation</strong>. When the client makes an HTTP request, <strong>it includes all information necessary for the server to fulfill that request</strong>. <strong>The server never relies on information from previous requests</strong>. If that information was important, the client would have sent it again in this request.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="hibernate">
+<h2>Hibernate<a class="headerlink" href="#hibernate" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>lock &#64;Version (optimisic) &#64;Lockmode (passive)</li>
+<li><dl class="first docutils">
+<dt>hibernate session dirty</dt>
+<dd><ul class="first last">
+<li>hibernate session</li>
+<li><a class="reference external" href="https://stackoverflow.com/questions/10804676/what-is-a-hibernate-dirty-session/35220231">https://stackoverflow.com/questions/10804676/what-is-a-hibernate-dirty-session/35220231</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="alogrithm">
+<h2>Alogrithm<a class="headerlink" href="#alogrithm" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Write a program to find the first hundred primes, then optimize</dt>
+<dd><ul class="first last">
+<li>[ref](<a class="reference external" href="https://program-think.blogspot.com/2011/12/prime-algorithm-1.html">https://program-think.blogspot.com/2011/12/prime-algorithm-1.html</a>)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="java-core.html" class="btn btn-neutral float-right" title="Java Core" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../index.html" class="btn btn-neutral" title="Java Interview Prep Docs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, chuan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../jquery.js"></script>
+      <script type="text/javascript" src="../underscore.js"></script>
+      <script type="text/javascript" src="../doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

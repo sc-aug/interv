@@ -1,0 +1,534 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Multithreading &mdash; Java Interview Prep Docs 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Web" href="web-servlet-jsp.html" />
+    <link rel="prev" title="Java Core" href="java-core.html" /> 
+
+  
+  <script src="../js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Java Interview Prep Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="java-core.html">Java Core</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Multithreading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-servlet-jsp.html">Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hibernate.html">Hibernate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spring.html">Spring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithm.html">Alogrithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design-pattern.html">Design Pattern</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Java Interview Prep Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Multithreading</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/_static/content/multithread.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="multithreading">
+<span id="multithreading"></span><h1>Multithreading<a class="headerlink" href="#multithreading" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>What is the difference between Process and Thread?<ul>
+<li>application &gt;&gt; process &gt;&gt; thread</li>
+<li>A process = an executing program.</li>
+<li>A Java application 1 process (default). Within a Java application you work with several threads to achieve parallel processing or asynchronous behavior.</li>
+<li><strong>isolation</strong><ul>
+<li>Process: runs independently, isolated from others. cannot directly access shared data in other processes</li>
+<li>Thread: share the context of the process. own call stack, and can access shared data of other threads in the same process.</li>
+</ul>
+</li>
+<li><strong>context switch</strong><ul>
+<li>Process: slow</li>
+<li>Thread: fast</li>
+</ul>
+</li>
+<li><strong>communication</strong><ul>
+<li>Process: specific communication technique</li>
+<li>Thread: is easier as thread shares common address space</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>What are the benefits of multi-threaded programming?<ul>
+<li>fast / efficient / reduce cpu idle time</li>
+<li>when two or more thread running simultaneously, you can create multifunctoinal app</li>
+<li>appilcation response fast, and no I/O blocking</li>
+</ul>
+</li>
+<li>What is difference between user Thread and daemon Thread? <a class="reference external" href="https://javaconceptoftheday.com/difference-between-used-threads-vs-daemon-threads-in-java/">ref</a><ul>
+<li>Daemon Thread<ul>
+<li>perform some background tasks like garbage collection.</li>
+<li>Daemon thread is to provide services to user thread for background supporting task.</li>
+<li>Daemon Threads are threads that do not prevent the JVM from shutting down.</li>
+<li><code class="docutils literal notranslate"><span class="pre">setDaemon(true)</span></code> to set a thread as a daemon thread</li>
+<li><code class="docutils literal notranslate"><span class="pre">isDaemon()</span></code></li>
+</ul>
+</li>
+<li>User Thread<ul>
+<li>User threads are threads use in your application to achieve user task</li>
+<li>User threads are designed to do user defined tasks</li>
+<li>User threads are high priority threads</li>
+</ul>
+</li>
+<li>JVM:<ul>
+<li>JVM will wait for user threads to finish their tasks. JVM will not exit until all user threads finish their tasks. On the other side, JVM will not wait for daemon threads to finish their tasks. It will exit as soon as all user threads finish their tasks.</li>
+<li>JVM will not force the user threads to terminate. It will wait for user threads to terminate themselves. On the other hand, JVM will force the daemon threads to terminate if all the user threads have finished their task.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>What is multi-tasking and multi-threading?<ul>
+<li>multi-tasking = multiple processes</li>
+<li>multi-threading = multiple threads (faster context swicher)</li>
+</ul>
+</li>
+<li>How can we create a Thread in Java?<ul>
+<li>create Thread object, passing Runnable Object, start()</li>
+<li>create class extends Thread, create object of that class, start()</li>
+</ul>
+</li>
+<li>What are different states in lifecycle of Thread? ?? block -&gt;runnable ?? start &amp; run<ul>
+<li>[new] thread is not alive and it’s a state internal to Java programming.</li>
+<li>[runnable] call <code class="docutils literal notranslate"><span class="pre">start()</span></code>, it’s state is changed to Runnable. The <strong>thread scheduler</strong> will take control of the thread, and finish execution of the thread. the thread may run immediately, or it may keep in runnable thread pool.</li>
+<li>[running] Thread scheduler picks one of the thread from the runnable thread pool and change it’s state to Running. When thread is executing, it’s state is changed to Running.<ul>
+<li>running -&gt; runnable : yield</li>
+<li>running -&gt; terminate : finish</li>
+<li>running -&gt; block : sleep(), wait()</li>
+</ul>
+</li>
+<li>[block/wait] sleep, wait/notify, consumer/producer, i/o / (suspend/resume ??)<ul>
+<li>block -&gt; runnable -&gt; running</li>
+</ul>
+</li>
+<li>[terminate] Once the thread finished executing</li>
+</ul>
+</li>
+</ul>
+<p><img alt="thread states" src="images/thread-states.jpg" /></p>
+<ul>
+<li><p class="first">Can we call run() method of a Thread class?</p>
+<ul class="simple">
+<li>No. it’s just a common method, call <code class="docutils literal notranslate"><span class="pre">run()</span></code> directly won’t create new</li>
+</ul>
+</li>
+<li><p class="first">How can we pause the execution of a Thread for specific time?</p>
+<ul class="simple">
+<li></li>
+</ul>
+</li>
+<li><p class="first">What do you understand about Thread Priority? ?? always highest first ??</p>
+<ul class="simple">
+<li>priorities [min-max] = [1-10], default = 5</li>
+<li>In most cases, thread schedular schedules the threads according to their priority (known as preemptive scheduling).</li>
+</ul>
+</li>
+<li><p class="first">What is Thread Scheduler and Time Slicing?</p>
+<ul class="simple">
+<li>Thread scheduler in java <strong>is the part of the JVM</strong> that decides which thread should run.</li>
+<li>There is no guarantee that which runnable thread will be chosen to run by the thread scheduler.</li>
+<li>Only one thread at a time can run in a single process.</li>
+<li>Time slicing schedulling is the one of preemptive based scheduling algorithm</li>
+<li>A task executes for a predefined slice of time and then reenters a pool of ready tasks.</li>
+<li>Time slicing [<strong>predefine</strong>] [<strong>time window</strong>]</li>
+</ul>
+</li>
+<li><p class="first">What is context-switching in multi-threading?</p>
+<ul class="simple">
+<li>in multi-threading. At a time point, for each processor, there would be only one thread running.</li>
+<li>so if multiple thread is assign to a same processor, the processor need to schedule threads.</li>
+<li>during the context switching OS kernel has to save the the state of the cpu registers for the current thread, then load these registers with the correct state for the next thread that is next to be executed</li>
+</ul>
+</li>
+<li><p class="first">what is join()</p>
+<ul class="simple">
+<li>the joined thread will execute first, until then current thread will run the code after that <code class="docutils literal notranslate"><span class="pre">join()</span></code> method</li>
+<li>current thread block, wait the thread execution which use join()</li>
+</ul>
+</li>
+<li><p class="first">How can we make sure main() is the last thread to finish in Java Program?</p>
+<ul class="simple">
+<li>all the thread should use <code class="docutils literal notranslate"><span class="pre">join()</span></code> method to join in <code class="docutils literal notranslate"><span class="pre">main()</span></code> thread.</li>
+<li>daemon_main() &amp; thread.setDaemon(true);thread.start() ??</li>
+</ul>
+</li>
+<li><p class="first">How does thread communicate with each other?</p>
+<ul class="simple">
+<li>wait()/notify()/notifyAll()</li>
+</ul>
+</li>
+<li><p class="first">Why thread communication methods wait(), notify() and notifyAll() are in Object class?</p>
+<ul class="simple">
+<li>because <code class="docutils literal notranslate"><span class="pre">wait</span></code>, <code class="docutils literal notranslate"><span class="pre">notify</span></code>, <code class="docutils literal notranslate"><span class="pre">notifyAll()</span></code> they apply on lock, and the lock is based on Object not Thread.</li>
+</ul>
+</li>
+<li><p class="first">Why wait(), notify() and notifyAll() methods have to be called from synchronized method or block?</p>
+<ul class="simple">
+<li>because <code class="docutils literal notranslate"><span class="pre">wait</span></code>, <code class="docutils literal notranslate"><span class="pre">notify</span></code>, <code class="docutils literal notranslate"><span class="pre">notifyAll()</span></code> they apply on lock, the lock is from <code class="docutils literal notranslate"><span class="pre">synchronized</span></code>. If <code class="docutils literal notranslate"><span class="pre">w</span> <span class="pre">n</span> <span class="pre">na</span></code> is used, then <code class="docutils literal notranslate"><span class="pre">synchronized</span></code> should go along with them</li>
+</ul>
+</li>
+<li><p class="first">Why Thread sleep() and yield() methods are static?</p>
+<ul class="simple">
+<li>sleep() not associate with perticular thread. [in t1 cannot call t2.sleep()]</li>
+<li>yield(), The thread which executes the yield method will enter in the [runnable] from [running].</li>
+</ul>
+</li>
+<li><p class="first">How can we achieve thread safety in Java?</p>
+<ul class="simple">
+<li>make sure that shared object is thread safe</li>
+<li>if shared object is not thread safe, apply <code class="docutils literal notranslate"><span class="pre">synchronized</span></code> <code class="docutils literal notranslate"><span class="pre">Lock</span></code> should be used, so only one thread can access the object at a time point.</li>
+</ul>
+</li>
+<li><p class="first">What is <code class="docutils literal notranslate"><span class="pre">volatile</span></code> keyword in Java</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">volatile</span></code> keyword disables cpu cache</li>
+<li><code class="docutils literal notranslate"><span class="pre">volatile</span></code> make sure the object is stored in main memory where it can be seen by diff threads.</li>
+</ul>
+</li>
+<li><p class="first">Which is more preferred – Synchronized method or Synchronized block?</p>
+<ul class="simple">
+<li>synch static method: lock on class =&gt; synchronizing to class of the object</li>
+<li>synch non-static method: lock on class =&gt; synchronizing to the object</li>
+<li>synch block: better control of synchronization by using a lock object, you can synchronizing a part of method to a lock object and without lock the whole object/class.</li>
+</ul>
+</li>
+<li><p class="first">How to create daemon thread in Java?</p>
+<ul class="simple">
+<li>create a common thread -&gt; setDaemon(true) -&gt; start()</li>
+</ul>
+</li>
+<li><p class="first">What is ThreadLocal? <a class="reference external" href="http://tutorials.jenkov.com/java-concurrency/threadlocal.html">ref</a></p>
+<ul class="simple">
+<li>The ThreadLocal class in Java enables you to create variables that can only be read and written by the same thread. Thus, even if two threads are executing the same code, and the code has a reference to a ThreadLocal variable, then the two threads cannot see each other’s ThreadLocal variables.</li>
+</ul>
+</li>
+<li><p class="first">What is <code class="docutils literal notranslate"><span class="pre">ThreadGroup</span></code>? Why it’s advised not to use it?</p>
+<ul class="simple">
+<li>The instance of <code class="docutils literal notranslate"><span class="pre">ThreadGroup</span></code> class contains <code class="docutils literal notranslate"><span class="pre">Thread</span></code> and <code class="docutils literal notranslate"><span class="pre">ThreadGroup</span></code>.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">ThreadGroup</span></code> offers a convenient way to manage groups of threads as a unit.</li>
+<li>Manage a number of related Threads easily and manipulate them at the same time (suspend &amp; resume).</li>
+</ul>
+</li>
+<li><p class="first">What is Java Thread Dump, How can we get Java Thread dump of a Program?</p>
+<ul class="simple">
+<li></li>
+</ul>
+</li>
+<li><p class="first">What is Deadlock? How to analyze and avoid deadlock situation?</p>
+<ul>
+<li><blockquote class="first">
+<div><p>2 threads asking for resources which acuqired by other thread</p>
+</div></blockquote>
+</li>
+<li><p class="first">avoid nested Lock</p>
+</li>
+<li><p class="first">tryLock()</p>
+</li>
+</ul>
+</li>
+<li><p class="first">?? Scheduled Thread Pool</p>
+<ul class="simple">
+<li>schedule a thread</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ScheduledExecutorService</span> <span class="n">scheduledThreadPool</span> <span class="o">=</span> <span class="n">Executors</span><span class="o">.</span><span class="n">newScheduledThreadPool</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="n">Thread</span> <span class="n">t</span><span class="o">=</span> <span class="n">new</span> <span class="n">Thread</span><span class="p">();</span>
+<span class="n">scheduledThreadPool</span> <span class="o">.</span><span class="n">schedule</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">TIMEUNIT</span><span class="o">.</span><span class="n">SECONDS</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>?? ScheduledExecutorService scheduleAtFixedRate(Runnable command,long initialDelay,long period,TimeUnit unit)</p>
+<p>What is Java Timer Class? How to schedule a task to run after specific interval?</p>
+<ul class="simple">
+<li>What is Thread Pool?<ul>
+<li>is a collection of worker threads (execute asynchronous) on behalf of the application.</li>
+<li>is primarily used to (reduce the number of threads) and (provide threads’ management).</li>
+<li>use Executor framework</li>
+</ul>
+</li>
+<li>How can we create Thread Pool in Java?<ul>
+<li>single/cache/fix/schdule</li>
+</ul>
+</li>
+<li>What will happen if we don’t override Thread class run() method?<ul>
+<li><code class="docutils literal notranslate"><span class="pre">start()</span></code> internally calling <code class="docutils literal notranslate"><span class="pre">run()</span></code>, so if <code class="docutils literal notranslate"><span class="pre">run()</span></code> is not overrided then nothing will happen.</li>
+</ul>
+</li>
+<li>What is atomic operation? What are atomic classes in Java Concurrency API?<ul>
+<li></li>
+</ul>
+</li>
+<li>What is Lock interface in Java Concurrency API? What are it’s benefits over synchronization?<ul>
+<li>Fairness ReentrantLock(true)</li>
+<li>increase performance</li>
+<li>tryLock avoid deadlock</li>
+<li>ReentrantLock / Read/Write Lock</li>
+<li>concurrentHashMap - Read/Write Lock</li>
+<li>What is ReentrantLock  ???</li>
+</ul>
+</li>
+<li>What is Executors Framework?<ul>
+<li></li>
+</ul>
+</li>
+<li>What is BlockingQueue? How can we implement Producer-Consumer problem using Blocking Queue?<ul>
+<li>?? blockingqueue no null value &amp; thread safe &amp;</li>
+</ul>
+</li>
+<li>What is Callable and Future?<ul>
+<li>Callable</li>
+</ul>
+</li>
+<li>What is FutureTask class?<ul>
+<li>Implementation</li>
+</ul>
+</li>
+<li>What are Concurrent Collection Classes?<ul>
+<li>copyAndWriteArrayList / BlockingQueue / ConcurrentHashMap</li>
+<li>ArrayBlockingQueue, ConcurrentHashMap, or ExecutorService.
+What is Executors Class?
+What are some of the improvements in Concurrency API in Java 8?
+Object Class notify,notifyAll,wait ?
+What is</li>
+</ul>
+</li>
+<li>object lock &amp; class lock??</li>
+<li>nested sync method ??</li>
+<li>executor shutdown ??</li>
+<li>ConcurrentModificationException?? ??<ul>
+<li>how to avoid (when use copy first) (sync block) ()</li>
+</ul>
+</li>
+<li>ConcurrentMidification ??
+failFast failSafe
+https://www.geeksforgeeks.org/fail-fast-fail-safe-iterators-java/
+iterator fail fast</li>
+<li>CompleteFuture ??<ul>
+<li>chain</li>
+<li>exception handling</li>
+<li>complete() manual terminate</li>
+</ul>
+</li>
+<li>where used in project ?? executorframework</li>
+<li>?? semaphore ?? mutex ??</li>
+<li>Iterator only call remove() and no add()</li>
+<li>terminated thread start IlleagalThreadState</li>
+</ul>
+<p>Question1. What Do You Understand By Executor Framework In Java?
+Question2. What Is The Role Of Executorservice In Java?</p>
+<p>Question3. What Is Executors In Java Executor Framework?</p>
+<p>Question4. What Is The Role Of Futuretask And Future In Java?</p>
+<p>Question5. What Is Difference Between Shutdownnow() And Shutdown() In Executor
+Question6. How To Terminate A Thread In Executor Framework In Java?</p>
+<p>Question7. What Is The Role Of Executors.privileged Threadfactory() In Executor Framework?</p>
+<p>Question8. What Is The Role Of Executors.unconfigurable Executorservice In Executor</p>
+<p>Question9. What Are The Different Policy In Executor Framework?</p>
+<p>Question10. How To Get Return Value Of A Callable Thread In Java Executor Framework?</p>
+<p>Question11. Write A Program Using Executor In Java Or Example Of Thread Pool In Java?</p>
+<p>Question12. What Is Semaphore?</p>
+<p>Question13. What Is Cyclicbarrier And Countdownlatch?
+Answer :</p>
+<p>Question14. How Countdownlatch Work In Java?</p>
+<p>Question15. What Is Difference Between Lock Interface And Synchronized Keyword?</p>
+<p>Question16. What Is Condition?</p>
+<p>Question17. What Is Readwritelock?</p>
+<p>Lab Work</p>
+<p>Q1) Write a program to do the following operations using Thread:
+Create an user defined Thread class called as “CopyDataThread .java” .
+This class will be designed to copy the content from one file “source.txt ” to another file “target.txt” and after every 10 characters copied, “10 characters are copied” message will be shown to user.(Keep delay of 5 seconds after every 10 characters read.)
+Create another class “FileProgram.java” which will create above thread. Pass required File Stream classes to CopyDataThread constructor and implement the above functionality.</p>
+<p>Q2) Write a thread program to display timer where timer will get refresh after every 10seconds.( Use Runnable implementation )</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="web-servlet-jsp.html" class="btn btn-neutral float-right" title="Web" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="java-core.html" class="btn btn-neutral" title="Java Core" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, chuan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../jquery.js"></script>
+      <script type="text/javascript" src="../underscore.js"></script>
+      <script type="text/javascript" src="../doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

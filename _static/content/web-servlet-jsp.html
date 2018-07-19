@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Web &mdash; Java Interview Prep Docs 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Hibernate" href="hibernate.html" />
+    <link rel="prev" title="Multithreading" href="multithread.html" /> 
+
+  
+  <script src="../js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Java Interview Prep Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="java-core.html">Java Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multithread.html">Multithreading</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#j2ee">J2EE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#servlet-jsp">Servlet &amp; JSP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hibernate.html">Hibernate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spring.html">Spring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithm.html">Alogrithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design-pattern.html">Design Pattern</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Java Interview Prep Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Web</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/_static/content/web-servlet-jsp.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="web">
+<span id="web"></span><h1>Web<a class="headerlink" href="#web" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="general">
+<span id="general"></span><h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>What are differences between REST and other webservices.<ul>
+<li>SOAP vs REST</li>
+<li><a class="reference external" href="https://restfulapi.net/statelessness/">ref</a> Statelessness means that every HTTP request happens in <strong>complete isolation</strong>. When the client makes an HTTP request, <strong>it includes all information necessary for the server to fulfill that request</strong>. <strong>The server never relies on information from previous requests</strong>. If that information was important, the client would have sent it again in this request.</li>
+</ul>
+</li>
+<li>Name at least 2 frameworks that use the MVC pattern.<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="j2ee">
+<span id="j2ee"></span><h2>J2EE<a class="headerlink" href="#j2ee" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>What’s the difference between the Java SE and the Java EE platform.<ul>
+<li>JavaSE(Standard Edition): core Java programming platform. It contains the basic libraries and APIs (java.lang, java.io, java.math, java.net, java.util, etc…)</li>
+<li>JavaEE(Enterprise Edition): Java EE is built on top of Java SE, and it is used for developing web applications and large-scale enterprise applications. (servlet, websocket, javaserver faces, dependency injection, ejb, persistence, transaction, jms, batch api)</li>
+</ul>
+</li>
+<li>What is a JAR File? What is a WAR file ? What is an EAR file? When would you use each?<ul>
+<li></li>
+</ul>
+</li>
+<li>What are the benefits/features of J2EE?<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="servlet-jsp">
+<span id="servlet-jsp"></span><h2>Servlet &amp; JSP<a class="headerlink" href="#servlet-jsp" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Describe the servlet lifecycle.<ul>
+<li>servlets are <strong>controlled</strong> by web container</li>
+<li>when a servlet based web app deployed on a web container</li>
+<li>web container read <code class="docutils literal notranslate"><span class="pre">web.xml</span></code> to get servlet info &amp; (servlet context + servlet conf)</li>
+<li>web container load <strong>servlet class</strong></li>
+<li>web container create servlet instance</li>
+<li>web container use servlet configure <code class="docutils literal notranslate"><span class="pre">init()</span></code> servlet, create/allocate thread for servlet</li>
+<li>when request come web container forward request to servlet <code class="docutils literal notranslate"><span class="pre">service()</span></code></li>
+<li>web container call <code class="docutils literal notranslate"><span class="pre">destroy()</span></code> when web container stops or deallocate servlet</li>
+</ul>
+</li>
+<li>What is the role of JSP in the MVC pattern?<ul>
+<li>JSP acting as a role of View in MVC</li>
+<li>JSP provides html template, when it renders to real html, java data will be inserted into the template</li>
+<li>JSP also provides some control, by using <strong>JSTL</strong></li>
+</ul>
+</li>
+<li>What technologies have you personally used to implement REST?<ul>
+<li>expressjs(javascript based), flask(python), spring mvc</li>
+</ul>
+</li>
+<li>Can you describe what a RESTful web service looks like from the perspective of a client? Partial<ul>
+<li></li>
+</ul>
+</li>
+<li>What is a “resource” as it pertains to REST? Partial</li>
+<li>What is the difference between a POST and a PUT? Incorrect</li>
+<li>What are some best practices around error codes in a RESTful environment? Give at least two examples. Partial</li>
+<li>Please explain how you’ve implemented RESTful services in the past? Did you use any particular tools? Did you use doPost() as the service method or something else? Partial</li>
+<li>just Spring</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hibernate.html" class="btn btn-neutral float-right" title="Hibernate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="multithread.html" class="btn btn-neutral" title="Multithreading" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, chuan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../jquery.js"></script>
+      <script type="text/javascript" src="../underscore.js"></script>
+      <script type="text/javascript" src="../doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
